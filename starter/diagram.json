@@ -1,0 +1,81 @@
+{
+    "version": 1,
+    "author": "Udacity",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 67.2, "left": -33.56, "attrs": {} },
+      {
+        "type": "wokwi-tm1637-7segment",
+        "id": "sevseg1",
+        "top": -105.64,
+        "left": -88.97,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn1",
+        "top": 7.4,
+        "left": 163.2,
+        "attrs": { "color": "green", "bounce": "0", "label": "MENU" }
+      },
+      {
+        "type": "wokwi-buzzer",
+        "id": "bz1",
+        "top": 31.2,
+        "left": -180.6,
+        "attrs": { "volume": "0.1" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn2",
+        "top": -50.2,
+        "left": 230.4,
+        "attrs": { "color": "green", "bounce": "0", "label": "+" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn3",
+        "top": 84.2,
+        "left": 230.4,
+        "attrs": { "color": "green", "bounce": "0", "label": "-" }
+      },
+      {
+        "type": "wokwi-pushbutton-6mm",
+        "id": "btn4",
+        "top": 7.4,
+        "left": 307.2,
+        "attrs": { "color": "green", "bounce": "0", "label": "OK" }
+      },
+      { "type": "wokwi-gnd", "id": "gnd1", "top": -66.3, "left": 277.3, "rotate": 270, "attrs": {} },
+      { "type": "wokwi-gnd", "id": "gnd2", "top": -8.7, "left": 354.1, "rotate": 270, "attrs": {} },
+      { "type": "wokwi-gnd", "id": "gnd3", "top": 68.1, "left": 277.3, "rotate": 270, "attrs": {} },
+      { "type": "wokwi-gnd", "id": "gnd4", "top": -8.7, "left": 210.1, "rotate": 270, "attrs": {} },
+      { "type": "wokwi-slide-switch", "id": "sw1", "top": 158, "left": 252.7, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc1", "top": 48.76, "left": -38.4, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc2", "top": 163.96, "left": 297.6, "attrs": {} },
+      { "type": "wokwi-gnd", "id": "gnd5", "top": 201.6, "left": 239.4, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "esp:18", "sevseg1:DIO", "green", [ "h48", "v-240" ] ],
+      [ "sevseg1:CLK", "esp:5", "green", [ "h38.4", "v259.2" ] ],
+      [ "sevseg1:VCC", "esp:3V3", "red", [ "h19.2", "v57.6", "h-153.6", "v96" ] ],
+      [ "sevseg1:GND", "esp:GND.1", "black", [ "h0", "v38.4", "h-144", "v230.4" ] ],
+      [ "esp:16", "btn1:2.l", "green", [ "h67.2", "v-172.8", "h28.8" ] ],
+      [ "btn2:2.l", "esp:4", "green", [ "h-76.8", "v192.4" ] ],
+      [ "btn4:2.l", "esp:0", "green", [ "h-28.8", "v38.8", "h-105.6", "v153.6" ] ],
+      [ "esp:2", "btn3:2.l", "green", [ "h96", "v-124.8", "h67.2" ] ],
+      [ "gnd1:GND", "btn2:1.r", "black", [ "v0" ] ],
+      [ "gnd3:GND", "btn3:1.r", "black", [ "v0" ] ],
+      [ "gnd2:GND", "btn4:1.r", "black", [ "v0" ] ],
+      [ "gnd4:GND", "btn1:1.r", "black", [ "v0" ] ],
+      [ "sw1:2", "esp:15", "green", [ "v0" ] ],
+      [ "esp:3V3", "vcc1:VCC", "red", [ "h0" ] ],
+      [ "sw1:1", "gnd5:GND", "green", [ "v0" ] ],
+      [ "sw1:3", "vcc2:VCC", "green", [ "v0" ] ],
+      [ "esp:12", "bz1:2", "green", [ "v0", "h-105.45" ] ],
+      [ "esp:GND.1", "bz1:1", "black", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }
