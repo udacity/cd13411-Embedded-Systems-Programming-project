@@ -33,7 +33,7 @@
     THE SOFTWARE.
 */
 
-#include "TM1637.h"
+#include "tm1637.h"
 #include <Arduino.h>
 
 //  --0x01--

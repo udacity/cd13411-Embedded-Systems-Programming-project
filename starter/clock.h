@@ -3,7 +3,7 @@
 
 #include <cstdint>
 #include <Arduino.h>
-#include "TM1637.h"
+#include "tm1637.h"
 #include "alarm_tone.h"
 
 enum ButtonType
